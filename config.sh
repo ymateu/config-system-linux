@@ -2,7 +2,8 @@
 sudo pacman -Sy nano curl git -y
 
 # Install sdk man
-curl -s "https://get.sdkman.io" | bash 
+curl -s "https://get.sdkman.io" | bash
+source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 # Install Java and Kotlin
 sdk man install java kotlin
