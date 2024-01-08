@@ -7,6 +7,17 @@ curl -s "https://get.sdkman.io" | bash
 # Install Java and Kotlin
 sdk man install java kotlin
 
+# Install snap
+sudo pacman -S snapd
+sudo systemctl enable --now snapd.socket
+sudo ln -s /var/lib/snapd/snap /snap
+
+# Install vscde
+sudo snap install code --classic
+
+# Install Intellij idea
+sudo snap install intellij-idea-community --classic
+
 # Install zsh
 sudo pacman -Sy zsh
 
