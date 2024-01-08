@@ -1,5 +1,11 @@
 # Install basics
-sudo pacman -Sy nano curl -y
+sudo pacman -Sy nano curl git -y
+
+# Install sdk man
+curl -s "https://get.sdkman.io" | bash 
+
+# Install Java and Kotlin
+sdk man install java kotlin
 
 # Install zsh
 sudo pacman -Sy zsh
