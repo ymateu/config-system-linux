@@ -1,10 +1,8 @@
 # Install basics
-sudo apt install nano
-sudo apt-get install curl
-sudo add-apt-repository ppa:git-core/ppa ; sudo apt update ; sudo apt-get install git
+sudo pacman -Sy nano curl -y
 
 # Install zsh
-sudo apt-get install zsh
+sudo pacman -Sy zsh
 
 # Install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -25,22 +23,11 @@ plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
 # Config powerlevel10k
 p10k configure
 
-# Install ruby
-sudo apt-get install ruby-full ruby-build -y
-
-#install gems
-gem install rubocop
-gem install rails
-gem install bundler
-gem install sinatra
-
 # Configure git
 git config --global user.email "mateusantonioofc@gmail.com"
 git config --global user.name "Mateus"
 
 # End
-sudo apt update && sudo apt upgrade
+sudo pacman -Syu
 source ~/.zshrc
 
-# Error permission denied in gem install
-chmod 777 path
