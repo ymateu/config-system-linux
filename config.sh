@@ -15,14 +15,6 @@ sudo snap install intellij-idea-community --classic
 # Install zsh
 sudo pacman -Sy zsh
 
-# Install ruby
-sudo pacman -S base-devel python-pip    
-wget http://ftp.ruby-lang.org/pub/ruby/3.0/ruby-3.0.2.tar.gz
-tar -xzvf ruby-3.0.2.tar.gz ; cd ruby-3.0.2/ && ./configure   
-make && sudo make install
-gem install bundler
-gem install rails
-
 # Install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
