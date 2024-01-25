@@ -1,3 +1,5 @@
+# Configure swap
+
 # Install basics
 sudo pacman -Sy nano curl git -y
 
