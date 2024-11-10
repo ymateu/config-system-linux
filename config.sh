@@ -44,3 +44,17 @@ git config --global user.name "Mateus"
 sudo pacman -Syu
 source ~/.zshrc
 
+sudo apt install python3.10-venv
+
+# criar e ativar ambiente virtual python
+python3 -m venv venv
+source venv/bin/activate
+
+# desativar ambiente virtual
+deactivate
+
+# instalar dependencias
+pip install -r requirements.txt  
+
+# salvar dependencias
+pip freeze > requirements.txt
