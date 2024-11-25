@@ -10,7 +10,7 @@ sudo apt install nano curl git vim -y
 sudo snap install code --classic
 
 # Install zsh
-sudo pacman -Sy zsh
+sudo apt install zsh
 
 # Install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
