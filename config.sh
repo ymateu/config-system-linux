@@ -1,40 +1,45 @@
-# Configure swap
+#!/bin/bash
 
-# Install basics Manjaro
-# sudo pacman -Sy nano curl git -y
+function print_message {
+    echo -e "\n==============================="
+    echo "$1"
+    echo "===============================\n"
+}
 
-# Install basics Ubunto
-sudo apt install nano curl git vim -y
+print_message "Atualizando sistema e instalando pacotes básicos"
+sudo apt update && sudo apt upgrade -y
+sudo apt install -y nano curl git vim zsh snapd
 
-# Install vscde
+print_message "Habilitando o Snap"
+sudo systemctl enable --now snapd.socket
+sudo ln -s /var/lib/snapd/snap /snap
+
+print_message "Instalando VSCode"
 sudo snap install code --classic
 
-# Install zsh
-sudo apt install zsh
+print_message "Instalando Zsh"
+sudo apt install -y zsh
 
-# Install oh-my-zsh
+print_message "Instalando Oh-My-Zsh"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-# Install plugins for zsh
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+print_message "Instalando plugins do Zsh"
+ZSH_CUSTOM=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
 
-# Install powerlevel10k
+print_message "Instalando tema Powerlevel10k"
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/themes/powerlevel10k
 
-# Add powerlevel10k in ~/.zshrc
-# ZSH_THEME=powerlevel10k/powerlevel10k
+print_message "Configurando tema e plugins no .zshrc"
+sed -i 's/^ZSH_THEME=.*/ZSH_THEME="powerlevel10k\/powerlevel10k"/' ~/.zshrc
+sed -i 's/^plugins=(.*)/plugins=(git zsh-syntax-highlighting zsh-autosuggestions)/' ~/.zshrc
 
-# Config plugins in ~/.zshrc
-# plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
-
-# Config powerlevel10k
-# p10k configure
-
-# Configure git
+print_message "Configurando Git"
 git config --global user.email "mateusantonioofc@gmail.com"
 git config --global user.name "Mateus"
 
-# End
+print_message "Finalizando configuração"
 source ~/.zshrc
 
+print_message "Configuração concluída! Reinicie o terminal ou execute 'zsh' para ativar as mudanças."
