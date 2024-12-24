@@ -28,6 +28,9 @@ ZSH_CUSTOM=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
 
+print_message "Instalando sdk man"
+curl -s "https://get.sdkman.io" | bash
+
 print_message "Instalando tema Powerlevel10k"
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/themes/powerlevel10k
 
@@ -41,5 +44,6 @@ git config --global user.name "Mateus"
 
 print_message "Finalizando configuração"
 source ~/.zshrc
+source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 print_message "Configuração concluída! Reinicie o terminal ou execute 'zsh' para ativar as mudanças."
